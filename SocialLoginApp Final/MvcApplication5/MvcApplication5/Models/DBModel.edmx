@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SocialNetworkingAppModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SocialNetworkingAppModelStoreContainer">
+          <EntitySet Name="TblApplicationInfo" EntityType="SocialNetworkingAppModel.Store.TblApplicationInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblOAuthDetails" EntityType="SocialNetworkingAppModel.Store.TblOAuthDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblUserInfo" EntityType="SocialNetworkingAppModel.Store.TblUserInfo" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="TblApplicationInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplicationDetails" Type="nvarchar" MaxLength="150" />
+          <Property Name="ContactUsDetails" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TblOAuthDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FacebookAppId" Type="nvarchar" MaxLength="100" />
+          <Property Name="FacebookKey" Type="nvarchar" MaxLength="100" />
+          <Property Name="TwitterAppId" Type="nvarchar" MaxLength="100" />
+          <Property Name="TwitterKey" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TblUserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="numeric" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SocialNetworkingAppModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SocialNetworkingAppEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="TblApplicationInfoes" EntityType="SocialNetworkingAppModel.TblApplicationInfo" />
+          <EntitySet Name="TblOAuthDetails" EntityType="SocialNetworkingAppModel.TblOAuthDetail" />
+          <EntitySet Name="TblUserInfoes" EntityType="SocialNetworkingAppModel.TblUserInfo" />
+        </EntityContainer>
+        <EntityType Name="TblApplicationInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationDetails" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="ContactUsDetails" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblOAuthDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FacebookAppId" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FacebookKey" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="TwitterAppId" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="TwitterKey" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblUserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Int64" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="PhoneNumber" Precision="18" Scale="0" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SocialNetworkingAppModelStoreContainer" CdmEntityContainer="SocialNetworkingAppEntities">
+          <EntitySetMapping Name="TblApplicationInfoes">
+            <EntityTypeMapping TypeName="SocialNetworkingAppModel.TblApplicationInfo">
+              <MappingFragment StoreEntitySet="TblApplicationInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="ApplicationDetails" ColumnName="ApplicationDetails" />
+                <ScalarProperty Name="ContactUsDetails" ColumnName="ContactUsDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOAuthDetails">
+            <EntityTypeMapping TypeName="SocialNetworkingAppModel.TblOAuthDetail">
+              <MappingFragment StoreEntitySet="TblOAuthDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FacebookAppId" ColumnName="FacebookAppId" />
+                <ScalarProperty Name="FacebookKey" ColumnName="FacebookKey" />
+                <ScalarProperty Name="TwitterAppId" ColumnName="TwitterAppId" />
+                <ScalarProperty Name="TwitterKey" ColumnName="TwitterKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblUserInfoes">
+            <EntityTypeMapping TypeName="SocialNetworkingAppModel.TblUserInfo">
+              <MappingFragment StoreEntitySet="TblUserInfo">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
