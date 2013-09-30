@@ -4,8 +4,6 @@ Add the ability to login/register with Facebook, Google and LinkedIn to the defa
 
 Source Code is in the Folder "SocialLoginApp Final".
 
-You can find SQL file (DBscript.sql) in the same folder, that you need to run on SQL Server.
-
 --------------------------------------------------------------
 
 Task 2
